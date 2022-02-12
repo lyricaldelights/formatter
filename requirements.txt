@@ -1,0 +1,5 @@
+langdetect==1.0.9
+streamlit==1.5.1
+selenium==4.1.0
+more-itertools==8.12.0
+webdriver-manager==3.5.2
