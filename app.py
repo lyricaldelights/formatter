@@ -20,6 +20,14 @@ from langdetect import detect
 import more_itertools as mit
 from itertools import groupby
 from selenium.webdriver.chrome.options import Options
+import os
+
+chrome_options = webdriver.ChromeOptions()
+chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.add_argument("--headless")
+chrome_options.add_argument("--disable-dev-shm-usage")
+chrome_options.add_argument("--no-sandbox")
+
 
 old_stdout = sys.stdout
 new_stdout = io.StringIO()
@@ -166,7 +174,8 @@ def send_to_olingoa(text):
 	username = "ttamilthathuvam2@gmail.com"
 	password = "test12345!"
 	site = "https://karky.in/karefo/labs/olingoa/olingoa.html"
-	driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
+	driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+	#driver = webdriver.Chrome(ChromeDriverManager().install(), options=options)
 	driver.get(site)
 	time.sleep(2)
 	driver.find_element_by_id("mail").send_keys(username)
