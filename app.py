@@ -206,7 +206,6 @@ if st.button('Convert format'):
 			lines=[]
 			for i in res:
 				if '<song>'in res[i][0]:
-					print('here')
 					lines=res[i][1:]
 				elif '<youtube>'in res[i][0]:
 					print('<br>'.join(res[i][1:]))
