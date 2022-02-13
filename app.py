@@ -262,6 +262,7 @@ if st.button('Convert format'):
 					elif i[0]=='ta':
 						print(placement('<br>'.join(lines[count:count+len(i)]),'ta'))
 						if count in final:
+							list_ind = final.index(count)
 							print(placement('<br>'.join(tamil_transliteration[list_ind:list_ind+len(i)]),'emp'))       
 					count+=len(i)
 			output = new_stdout.getvalue()
