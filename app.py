@@ -236,7 +236,7 @@ if st.button('Convert format'):
 			groups = [list(group) for group in mit.consecutive_groups(final)]
 
 			def placement(text, lan):
-				if lan=='en':
+				if lan !='ta' && lan !='emph':
 					return '<p><span class="has-inline-color has-vivid-cyan-blue-color">'+text+'</span></p>'
 				elif lan=='ta':
 					return '<blockquote class="wp-block-quote"><p>'+text+'</p></blockquote>'
@@ -247,7 +247,8 @@ if st.button('Convert format'):
 			count=0
 			for i in [list(y) for x, y in groupby(language_)]:
 				if len(i)==1:
-					if i[0]=='en':
+					#if i[0]=='en':
+					if i[0]!='ta':
 						print(placement(lines[count],'en'))
 					elif i[0] == 'ta':
 						print(placement(lines[count],'ta'))
@@ -256,7 +257,7 @@ if st.button('Convert format'):
 							print(placement(tamil_transliteration[list_ind],'emp')) 
 					count+=1
 				elif len(i)>1:
-					if i[0]=='en':
+					if i[0]!='ta':
 						print(placement('<br>'.join(lines[count:count+len(i)]),'en'))
 					elif i[0]=='ta':
 						print(placement('<br>'.join(lines[count:count+len(i)]),'ta'))
