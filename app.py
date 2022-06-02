@@ -236,7 +236,7 @@ if st.button('Convert format'):
 			groups = [list(group) for group in mit.consecutive_groups(final)]
 
 			def placement(text, lan):
-				if lan !='ta' && lan !='emph':
+				if lan !='ta' and lan !='emph':
 					return '<p><span class="has-inline-color has-vivid-cyan-blue-color">'+text+'</span></p>'
 				elif lan=='ta':
 					return '<blockquote class="wp-block-quote"><p>'+text+'</p></blockquote>'
